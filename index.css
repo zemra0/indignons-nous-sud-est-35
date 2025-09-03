@@ -1,0 +1,124 @@
+/* ===== Palette / override Bootstrap ===== */
+:root{
+    --bs-primary: #F9E25B;
+    --bg-dark: #121214;
+    --txt: #FFFFFF;
+    --txt-dark: #121214;
+}
+
+/* Fond sombre global + typo impact */
+html, body{
+    background: var(--bg-dark);
+    color: var(--txt);
+    font-family: Arial Black, Impact, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+/* Header compact + logo plus présent */
+header{
+    border-bottom: 4px solid var(--bs-primary);
+}
+header img{
+    max-height: 85%;
+    max-width: 160px;           /* un peu plus de volume */
+}
+header h1{
+    font-weight: 900;
+    margin: 0;
+}
+
+/* Boutons jaune/noir */
+.btn-primary{
+    background-color: var(--bs-primary);
+    border: 0;
+    color: var(--txt-dark);
+    font-weight: 900;
+}
+.btn-primary:hover,
+.btn-primary:focus{
+    background-color: #e7d558; /* léger assombrissement */
+    color: var(--txt-dark);
+}
+
+/* Bouton outline primaire (liens de cartes) */
+.btn-outline-primary{
+    border-color: var(--bs-primary);
+    color: var(--bs-primary);
+    font-weight: 800;
+}
+.btn-outline-primary:hover{
+    background-color: var(--bs-primary);
+    color: var(--txt-dark);
+    border-color: var(--bs-primary);
+}
+
+/* Titres de section */
+h2, h3, h4{
+    font-weight: 900;
+}
+
+/* Image A4 centrée, taille maîtrisée */
+.text-center img{
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 210/297;
+    object-fit: contain;
+    border: 2px solid #000;     /* optionnel: renforce le contraste sur fond sombre */
+}
+
+/* ===== Tuiles "post-it" pour les documents ===== */
+/* On re-stylise les cartes Bootstrap uniquement dans la section #docs */
+#docs .card{
+    background: var(--bs-primary);
+    color: var(--txt-dark);
+    border: 0;
+    box-shadow: 0 8px 0 #000;               /* ombre dure type collage */
+    transform: rotate(-1.5deg);             /* effet post-it */
+}
+#docs .card:nth-child(2n) { transform: rotate(1.25deg); }  /* variations légères */
+#docs .card .card-title{
+    font-weight: 900;
+}
+#docs .card .card-text{
+    opacity: .85;
+}
+
+/* Supprime la petite ombre grise native pour homogénéiser */
+#docs .shadow-sm{ box-shadow: none !important; }
+
+/* Espacement au survol, léger “lift” */
+#docs .card:hover{
+    transform: translateY(-2px) rotate(-1.5deg);
+    box-shadow: 0 10px 0 #000;
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+
+/* Liens dans cartes */
+#docs .btn-outline-primary{
+    border-width: 2px;
+}
+
+/* Conteneur global: un peu plus d’air sur grand écran */
+.container{
+    max-width: 960px;
+}
+
+/* Accessibilité contrastes (liens) */
+a{ color: var(--bs-primary); }
+a:hover{ color: #ffe676; }
+
+.card-header-yellow {
+    background: #F9E25B;
+    color: #121214;
+    font-weight: 900;
+}
+
+.card-img-top {
+    max-height: 250px;      /* limite la hauteur */
+    width: 100%;            /* prend toute la largeur dispo */
+    object-fit: contain;    /* garde les proportions */
+    background: #fff;       /* fond blanc si vide autour */
+    padding: 10px;          /* petit espace autour pour respirer */
+}
