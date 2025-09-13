@@ -1,5 +1,5 @@
 /* ===== Palette / override Bootstrap ===== */
-:root{
+:root {
     --bs-primary: #F9E25B;
     --bg-dark: #121214;
     --txt: #FFFFFF;
@@ -7,118 +7,180 @@
 }
 
 /* Fond sombre global + typo impact */
-html, body{
+html, body {
     background: var(--bg-dark);
     color: var(--txt);
     font-family: Arial Black, Impact, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
+    /* Retrait de text-transform global */
 }
 
-/* Header compact + logo plus présent */
-header{
+/* Appliquer la transformation uniquement quand on veut */
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+/* Pour désactiver les majuscules dans un bloc */
+.text-normal {
+    text-transform: none !important;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    letter-spacing: normal;
+}
+
+/* Titre de section impactant */
+.section-title {
+    font-weight: 900;
+    text-align: center;
+    border-bottom: 4px solid var(--bs-primary);
+    display: inline-block;
+    padding-bottom: 0.3rem;
+}
+
+/* Sous-titre en jaune sous un titre */
+.subtitle {
+    color: var(--bs-primary);
+    font-weight: 600;
+    text-align: center;
+    margin-top: -0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Texte de type article */
+article {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Slogan centré, impactant */
+.slogan-title {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--bs-primary);
+    text-transform: uppercase;
+}
+.slogan-sub {
+    font-size: 1.25rem;
+}
+
+/* ===== Header compact + logo plus présent ===== */
+header {
     border-bottom: 4px solid var(--bs-primary);
 }
-header img{
+header img {
     max-height: 85%;
-    max-width: 160px;           /* un peu plus de volume */
+    max-width: 160px;
 }
-header h1{
+header h1 {
     font-weight: 900;
     margin: 0;
 }
 
-/* Boutons jaune/noir */
-.btn-primary{
+/* ===== Boutons jaune/noir ===== */
+.btn-primary {
     background-color: var(--bs-primary);
     border: 0;
     color: var(--txt-dark);
     font-weight: 900;
 }
 .btn-primary:hover,
-.btn-primary:focus{
-    background-color: #e7d558; /* léger assombrissement */
+.btn-primary:focus {
+    background-color: #e7d558;
     color: var(--txt-dark);
 }
 
-/* Bouton outline primaire (liens de cartes) */
-.btn-outline-primary{
+/* ===== Bouton outline primaire (liens de cartes) ===== */
+.btn-outline-primary {
     border-color: var(--bs-primary);
     color: var(--bs-primary);
     font-weight: 800;
 }
-.btn-outline-primary:hover{
+.btn-outline-primary:hover {
     background-color: var(--bs-primary);
     color: var(--txt-dark);
     border-color: var(--bs-primary);
 }
 
-/* Titres de section */
-h2, h3, h4{
+/* ===== Titres de section généraux ===== */
+h2, h3, h4 {
     font-weight: 900;
 }
 
-/* Image A4 centrée, taille maîtrisée */
-.text-center img{
+/* ===== Image A4 centrée, taille maîtrisée ===== */
+.text-center img {
     max-width: 600px;
     width: 100%;
     height: auto;
     aspect-ratio: 210/297;
     object-fit: contain;
-    border: 2px solid #000;     /* optionnel: renforce le contraste sur fond sombre */
+    border: 2px solid #000;
 }
 
 /* ===== Tuiles "post-it" pour les documents ===== */
-/* On re-stylise les cartes Bootstrap uniquement dans la section #docs */
-#docs .card{
+#docs .card {
     background: var(--bs-primary);
     color: var(--txt-dark);
     border: 0;
-    box-shadow: 0 8px 0 #000;               /* ombre dure type collage */
-    transform: rotate(-1.5deg);             /* effet post-it */
+    box-shadow: 0 8px 0 #000;
+    transform: rotate(-1.5deg);
 }
-#docs .card:nth-child(2n) { transform: rotate(1.25deg); }  /* variations légères */
-#docs .card .card-title{
+#docs .card:nth-child(2n) {
+    transform: rotate(1.25deg);
+}
+#docs .card .card-title {
     font-weight: 900;
 }
-#docs .card .card-text{
-    opacity: .85;
+#docs .card .card-text {
+    opacity: 0.85;
 }
-
-/* Supprime la petite ombre grise native pour homogénéiser */
-#docs .shadow-sm{ box-shadow: none !important; }
-
-/* Espacement au survol, léger “lift” */
-#docs .card:hover{
+#docs .shadow-sm {
+    box-shadow: none !important;
+}
+#docs .card:hover {
     transform: translateY(-2px) rotate(-1.5deg);
     box-shadow: 0 10px 0 #000;
-    transition: transform .12s ease, box-shadow .12s ease;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
-
-/* Liens dans cartes */
-#docs .btn-outline-primary{
+#docs .btn-outline-primary {
     border-width: 2px;
 }
 
-/* Conteneur global: un peu plus d’air sur grand écran */
-.container{
+/* ===== Conteneur global ===== */
+.container {
     max-width: 960px;
 }
 
-/* Accessibilité contrastes (liens) */
-a{ color: var(--bs-primary); }
-a:hover{ color: #ffe676; }
+/* ===== Accessibilité contrastes (liens) ===== */
+a {
+    color: var(--bs-primary);
+}
+a:hover {
+    color: #ffe676;
+}
 
+/* ===== Spécifique aux cartes jaunes ===== */
 .card-header-yellow {
     background: #F9E25B;
     color: #121214;
     font-weight: 900;
 }
-
 .card-img-top {
-    max-height: 250px;      /* limite la hauteur */
-    width: 100%;            /* prend toute la largeur dispo */
-    object-fit: contain;    /* garde les proportions */
-    background: #fff;       /* fond blanc si vide autour */
-    padding: 10px;          /* petit espace autour pour respirer */
+    max-height: 250px;
+    width: 100%;
+    object-fit: contain;
+    background: #fff;
+    padding: 10px;
+}
+
+/* ===== Utilitaires Bootstrap custom ===== */
+.bg-dark {
+    background-color: var(--bg-dark) !important;
+}
+.text-warning {
+    color: var(--bs-primary) !important;
+}
+.border-warning {
+    border-color: var(--bs-primary) !important;
 }
