@@ -1,4 +1,3 @@
-/* ===== Palette / override Bootstrap ===== */
 :root {
     --bs-primary: #F9E25B;
     --bg-dark: #121214;
@@ -6,37 +5,33 @@
     --txt-dark: #121214;
 }
 
-/* Fond sombre global + typo impact */
+/* === Base === */
 html, body {
     background: var(--bg-dark);
     color: var(--txt);
     font-family: Arial Black, Impact, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
     letter-spacing: 0.5px;
-    /* Retrait de text-transform global */
+    margin: 0;
+    padding: 0;
 }
 
-/* Appliquer la transformation uniquement quand on veut */
-.text-uppercase {
-    text-transform: uppercase;
+/* === Sections === */
+.section-dark {
+    background-color: var(--bg-dark);
+    color: var(--txt);
+    padding: 3rem 0;
 }
 
-/* Pour désactiver les majuscules dans un bloc */
-.text-normal {
-    text-transform: none !important;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    letter-spacing: normal;
-}
-
-/* Titre de section impactant */
+/* === Titres === */
 .section-title {
     font-weight: 900;
-    text-align: center;
     border-bottom: 4px solid var(--bs-primary);
-    display: inline-block;
     padding-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    width: 100%;
 }
 
-/* Sous-titre en jaune sous un titre */
 .subtitle {
     color: var(--bs-primary);
     font-weight: 600;
@@ -45,127 +40,108 @@ html, body {
     margin-bottom: 2rem;
 }
 
-/* Texte de type article */
-article {
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    font-size: 1rem;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
+h2, h3, h4 {
+    font-weight: 900;
 }
 
-/* Slogan centré, impactant */
-.slogan-title {
+/* === Slogans === */
+.slogan-general {
     font-size: 1.75rem;
     font-weight: 900;
     color: var(--bs-primary);
     text-transform: uppercase;
+    line-height: 1.3;
+    text-align: center;
 }
+
 .slogan-sub {
     font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--txt);
+    text-align: center;
 }
 
-/* ===== Header compact + logo plus présent ===== */
-header {
-    border-bottom: 4px solid var(--bs-primary);
-}
-header img {
-    max-height: 85%;
-    max-width: 160px;
-}
-header h1 {
-    font-weight: 900;
-    margin: 0;
+/* === Intro / article === */
+.intro, article {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: justify;
 }
 
-/* ===== Boutons jaune/noir ===== */
+.intro p,
+article p {
+    margin-bottom: 1.2rem;
+}
+
+/* === Liste des revendications === */
+.claims-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 1.2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    list-style: none;
+}
+
+.claims-list li {
+    position: relative;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+.claims-list li::before {
+    content: "✊";
+    position: absolute;
+    left: 0;
+    color: var(--bs-primary);
+    font-weight: bold;
+}
+
+/* === Village image === */
+.village-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* === Boutons jaunes === */
 .btn-primary {
     background-color: var(--bs-primary);
     border: 0;
     color: var(--txt-dark);
     font-weight: 900;
 }
+
 .btn-primary:hover,
 .btn-primary:focus {
     background-color: #e7d558;
     color: var(--txt-dark);
 }
 
-/* ===== Bouton outline primaire (liens de cartes) ===== */
-.btn-outline-primary {
-    border-color: var(--bs-primary);
-    color: var(--bs-primary);
-    font-weight: 800;
-}
-.btn-outline-primary:hover {
-    background-color: var(--bs-primary);
-    color: var(--txt-dark);
-    border-color: var(--bs-primary);
-}
-
-/* ===== Titres de section généraux ===== */
-h2, h3, h4 {
-    font-weight: 900;
-}
-
-/* ===== Image A4 centrée, taille maîtrisée ===== */
-.text-center img {
-    max-width: 600px;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 210/297;
-    object-fit: contain;
-    border: 2px solid #000;
-}
-
-/* ===== Tuiles "post-it" pour les documents ===== */
+/* === Documents / cartes jaunes === */
 #docs .card {
     background: var(--bs-primary);
     color: var(--txt-dark);
     border: 0;
     box-shadow: 0 8px 0 #000;
-    transform: rotate(-1.5deg);
-}
-#docs .card:nth-child(2n) {
-    transform: rotate(1.25deg);
-}
-#docs .card .card-title {
-    font-weight: 900;
-}
-#docs .card .card-text {
-    opacity: 0.85;
-}
-#docs .shadow-sm {
-    box-shadow: none !important;
-}
-#docs .card:hover {
-    transform: translateY(-2px) rotate(-1.5deg);
-    box-shadow: 0 10px 0 #000;
     transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
-#docs .btn-outline-primary {
-    border-width: 2px;
+
+#docs .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 0 #000;
 }
 
-/* ===== Conteneur global ===== */
-.container {
-    max-width: 960px;
-}
-
-/* ===== Accessibilité contrastes (liens) ===== */
-a {
-    color: var(--bs-primary);
-}
-a:hover {
-    color: #ffe676;
-}
-
-/* ===== Spécifique aux cartes jaunes ===== */
-.card-header-yellow {
-    background: #F9E25B;
-    color: #121214;
+#docs .card .card-header {
+    background: var(--bs-primary);
+    color: var(--txt-dark);
     font-weight: 900;
+    text-align: center;
 }
+
 .card-img-top {
     max-height: 250px;
     width: 100%;
@@ -174,13 +150,21 @@ a:hover {
     padding: 10px;
 }
 
-/* ===== Utilitaires Bootstrap custom ===== */
-.bg-dark {
-    background-color: var(--bg-dark) !important;
+/* === Accessibilité liens === */
+a {
+    color: var(--bs-primary);
 }
-.text-warning {
-    color: var(--bs-primary) !important;
+
+a:hover {
+    color: #ffe676;
 }
-.border-warning {
-    border-color: var(--bs-primary) !important;
+
+/* === Image A4 (événement) === */
+.text-center img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 210/297;
+    object-fit: contain;
+    border: 2px solid #000;
 }
